@@ -10,4 +10,5 @@ acs_df <- read_ipums_micro(ddi_data, data_file = data_file)
 library(data.table)
 acs_df = readRDS("acs_df_2.rds") 
 acs_df = as.data.table(acs_df)
+acs_df[,OCCSOC:=NULL] 
 county_level = setDT(acs_df)[, lapply(.SD, mean), by = .(MULTYEAR, PWCOUNTY)]
